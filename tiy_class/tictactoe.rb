@@ -14,13 +14,13 @@ puts "Welcome to our game of Tic Tac Toe"
 	[0,0,0]
 ]
 @gameon = true
+@turn_number = 0
 def display_board
 	puts "#{display_square @board[0][0]}|#{display_square @board[0][1]}|#{display_square @board[0][2]}"
 	puts "-----"
 	puts "#{display_square @board[1][0]}|#{display_square @board[1][1]}|#{display_square @board[1][2]}"
 	puts "-----"
 	puts "#{display_square @board[2][0]}|#{display_square @board[2][1]}|#{display_square @board[2][2]}"
-	puts "player 1, it's your turn! (1 - 9 please)"
 end
 
 def display_square square
@@ -35,7 +35,7 @@ def display_square square
 	end
 
 def response_grabber1
-	puts "Player 1 its your turn"
+	puts "Player 1 its your turn!n1 - 9 please: 1 is top left, 9 is bottom right (like reading a book)"
 	response = gets.chomp.to_i
 	case response
 	when 1
@@ -57,9 +57,14 @@ def response_grabber1
 	when 9
 		@board [2][2] = 1
 	end
+	@turn_number += 1
+	if @turn_number >= 9 
+		puts "Tie!"
+		@gameon = false
+	end
 end 
 def response_grabber2
-	puts "Player 2 its your turn!"
+	puts "Player 2 its your turn!\n1 - 9 please: 1 is top left, 9 is bottom right (Like reading a book)"
 	response = gets.chomp.to_i
 	case response
 	when 1
@@ -81,9 +86,15 @@ def response_grabber2
 	when 9
 		@board [2][2] = 2
 	end
+	@turn_number += 1
+	if @turn_number >= 9
+		puts "Tie!"
+		@gameon = false
+	end
 end 
 
 def check_win player
+	#horizontal win conditions
 	if @board[0][0] == player && @board[0][1] == player && @board[0][2]
 		puts "Player #{player} wins!"
 		@gameon = false
@@ -93,19 +104,27 @@ def check_win player
 	elsif @board[2][0] == player && @board[2][1] == player && @board[2][2]
 		puts "Player #{player} wins!"
 		@gameon = false
+	#vertical win conditions
+	elsif @board[0][0] == player && @board[1][0] == player && @board[2][0]
+		puts "Player #{player} wins!"
+		@gameon = false
+	elsif @board[0][1] == player && @board[1][1] == player && @board[2][1]
+		puts "Player #{player} wins!"
+		@gameon = false
+	elsif @board[0][2] == player && @board[1][2] == player && @board[2][2]
+		puts "Player #{player} wins!"
+		@gameon = false
+	#diagonals
 	elsif @board[0][0] == player && @board[1][1] == player && @board[2][2]
 		puts "Player #{player} wins!"
 		@gameon = false
-	elsif @board[0][1] == player && @board[1][1] == player && @board[1][2]
+	elsif @board[0][2] == player && @board[1][1] == player && @board[2][0]
 		puts "Player #{player} wins!"
 		@gameon = false
-	elsif @board[0][2] == player && @board[2][1] == player && @board[2][2]
-		puts "Player #{player} wins!"
-		@gameon = false
-		
+	end	
 end
 
-while true
+while @gameon
 	display_board
 	#if not player 1 makes a choice
 	#save his choice
@@ -121,6 +140,9 @@ while true
 	#check to see if he won, if so end the game
 	response_grabber2
 	check_win 2
+	if @gameon == false
+		break
+	end
 end 
 
 #board.each do |row|
