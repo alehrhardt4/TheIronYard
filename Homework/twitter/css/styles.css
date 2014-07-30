@@ -1,0 +1,66 @@
+*, *:before, *:after { box-sizing: border-box;}
+
+body { font-family: 'Antic Slab', serif; margin: 0 }
+
+a {padding: 0px 20px 0px 20px;
+  color: #585858;
+  text-decoration: none}
+
+h1, h2, h3, h4, h5, h6 {font-family: 'Antic Slab', serif; font-weight: 300}
+
+h1 {
+font-size: 35;
+font-weight: 700
+}
+
+.content1of3 { height: 40px }
+
+.text1of2 { position: absolute;
+        height: 40px;
+        margin-left: 100px;
+        font-size: 6em; 
+        padding-bottom: 30%;}
+
+.about { padding: 8px;
+          color: #868686;
+          font-size: 20px}
+
+.countries {font-size: 15px;
+      padding-left: 800px;
+      padding-right: 0;
+      padding-bottom: 20px;
+      color: #868686}
+
+.accounts {padding-left: 5;
+      padding-right: 0;
+      font-size: 15px} 
+
+.register {padding-left: 10;
+          font-size: 15px} 
+
+.content2of3 { height: 45px;
+        background-color: #C0C0C0}    
+
+.menu { margin-top: 0;
+    margin-left: 130px;
+    margin-bottom: 0;
+    padding: 12px}
+
+.content3of3 { height: 200px;
+    background-image: url("https://g2.twimg.com/about/system/files/styles/hero_3200w_600h/public/about/page/hero/about-frontdoor-hero.jpg");
+    background-size: auto 100%}
+
+.paragraph { text-align: center;
+        margin-top: 0; 
+        color: white;
+        padding-top: 23px } 
+
+.centered_text { text-align: center;
+          color: white;
+          font-size: 50px;
+          margin: 0;}
+
+
+
+
+
