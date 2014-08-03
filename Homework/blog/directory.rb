@@ -1,3 +1,4 @@
+require 'jekyll'
 require 'sinatra'
 require 'data_mapper'
 
@@ -13,10 +14,6 @@ end
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 	
-	@blog = Blog.all
-	erb :index, layout: :layout
+	erb :layout
 end
 
-get '/create_blog' do
-	erb :create_blog, layout: :layout
-end
