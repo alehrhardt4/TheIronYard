@@ -27,17 +27,17 @@ post '/create_blog' do
 	redirect to ('/')
 end
 
-get 'display_blog/:id' do
+get '/display_blog/:id' do
 	@blog = Blog.get params[:title]
 	erb :display_blog, layout: :layout
 end
 
-get 'edit_blog/:id' do
+get '/edit_blog/:id' do
 	@blog = Blog.get params[:title]
 	erb :edit_blog, layout: :layout
 end
 
-put 'edit_blog/:id' do
+put '/edit_blog/:id' do
 	@blog = Blog.get params[:title]
 	@blog.update params[:blog]
 	redirect to ('/')

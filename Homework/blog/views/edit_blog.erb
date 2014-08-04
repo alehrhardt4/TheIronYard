@@ -3,7 +3,6 @@
 
 
 <form action="/edit_blog/<%= @blog.id %>" method="post">
-	
 	<input type="hidden" name="_method" value="put">
 	<label for="title">Blog Title</label>
 	<input type="text" id="title" name="blog[title]" value="<%= @blog.title %>">
