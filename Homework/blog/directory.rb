@@ -37,7 +37,7 @@ get 'edit_blog/:id' do
 	erb :edit_blog, layout: :layout
 end
 
-get 'edit_blog/:id' do
+put 'edit_blog/:id' do
 	@blog = Blog.get params[:title]
 	@blog.update params[:blog]
 	redirect to ('/')
