@@ -7,8 +7,8 @@ DataMapper.setup(:default, 'mysql://root@localhost/posts')
 class Blog
 		include DataMapper::Resource
 		property :id, Serial
-		property :title, String
-		property :blog, String
+		property :title, Text
+		property :blog, Text
 end
 
 DataMapper.finalize.auto_upgrade!
@@ -28,23 +28,23 @@ post '/create_blog' do
 end
 
 get '/display_blog/:id' do
-	@blog = Blog.get params[:title]
+	@blog = Blog.get params[:id]
 	erb :display_blog, layout: :layout
 end
 
 get '/edit_blog/:id' do
-	@blog = Blog.get params[:title]
+	@blog = Blog.get params[:id]
 	erb :edit_blog, layout: :layout
 end
 
 put '/edit_blog/:id' do
-	@blog = Blog.get params[:title]
+	@blog = Blog.get params[:id]
 	@blog.update params[:blog]
 	redirect to ('/')
 end
 
 delete '/delete_blog/:id' do
-	@blog = Blog.get params[:title]
+	@blog = Blog.get params[:id]
 	@blog.destroy
 	redirect to('/')
 	end 
