@@ -1,0 +1,10 @@
+<a href="create_blog">Create Post</a>
+<br>
+	<% @blog.each do |blog| %>
+	  <%= blog.title %>
+	  <%= blog.blog %>
+<br>
+<a href="/display_blog/<%= blog.id %>">Delete</a>
+<a href="/edit_blog/<%= blog.id %>">Edit</a>
+<br>
+<% end %>
