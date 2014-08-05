@@ -5,7 +5,8 @@
 <% @patient.each do |patient| %>
 	<%= patient.first_name %>
 	<%= patient.last_name %>
-	<% link_to "Edit", edit_patient_path(patient) %>
-	<% link_to "Delete", patient_path(patient) %>
+	
+	<%= link_to "Edit", edit_patient_path(patient) %>
+	<%= link_to "Delete", patient_path(patient), method: :delete %>
 <br>
 <% end %>
