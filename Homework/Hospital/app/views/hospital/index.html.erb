@@ -1,3 +1,11 @@
 <h1>Anna's Hospital</h1>
 
-<%= link_to "First Name", first_name_path %>
+<%= link_to "Patients", new_patient_path %>
+<br>
+<% @patient.each do |patient| %>
+	<%= patient.first_name %>
+	<%= patient.last_name %>
+	<% link_to "Edit", edit_patient_path(patient) %>
+	<% link_to "Delete", patient_path(patient) %>
+<br>
+<% end %>
