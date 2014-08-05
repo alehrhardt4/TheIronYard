@@ -1,0 +1,18 @@
+<h3>list of tournaments</h3>
+<a href="<%= new_tournament_path %>">New Tournament</a>
+
+<ul>
+<% @tournaments.reverse.each do |tournament| %>
+
+<li>
+<%= tournament.name %>
+|
+<%= tournament.description %>
+|
+<%= link_to "Edit", edit_tournament_path(tournament.id) %>
+|
+<%= link_to "Delete", tournament_path(tournament.id), method delete %>
+</li>
+<% end %>
+
+</ul>

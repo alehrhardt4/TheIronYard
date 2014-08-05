@@ -1,0 +1,10 @@
+<h2>edit tournament</h2>
+<%= link_to "back", root_path %>
+
+<%= form_for @tournament do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.submit %>
+
+<% end %>
