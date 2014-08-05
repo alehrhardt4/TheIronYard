@@ -28,6 +28,10 @@ class PatientsController < ApplicationController
   	redirect_to root_path
   end
 
+  validates :DOB,
+  date: { after: Proc.new { Date.today }, message: 'must be before today' },
+  on: :create
+
 private
 	def que_params
 		params.require(:patient).permit(:first_name, :last_name)

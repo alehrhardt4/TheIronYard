@@ -5,6 +5,12 @@ class CreatePatients < ActiveRecord::Migration
     	t.text :first_name
     	t.string :last_name
     	t.text :last_name
+    	t.string :DOB
+    	t.text :DOB
+    	t.string :gender
+    	t.text :gender
+    	t.string :description
+    	t.text :description
       t.timestamps
     end
   end

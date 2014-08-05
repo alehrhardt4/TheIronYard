@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root 'hospital#index'
   
   resources :patients
-  resources :first_name
-  resources :last_name
+  #resources :first_name
+  #resources :last_name
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
