@@ -1,4 +1,9 @@
 class PatientsController < ApplicationController
+
+validates :DOB,
+  date: { before_or_equal_to: Patient.new { Date.today }, message: 'must be before today' },
+  on: :create
+  
   def show
   	@patient = Patient.find params[:id]
   end
@@ -27,10 +32,6 @@ class PatientsController < ApplicationController
   	@patient.delete
   	redirect_to root_path
   end
-
-  validates :DOB,
-  date: { after: Proc.new { Date.today }, message: 'must be before today' },
-  on: :create
 
 private
 	def que_params
