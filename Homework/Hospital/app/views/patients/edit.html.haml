@@ -1,8 +1,16 @@
 %h2 Edit Patient
 = form_for @patient do |f|
+  - if  f.object.errors.messages.length > 0
+    / Renders errors to user
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
   = f.label :first_name
   = f.text_field :first_name
-  %br/
+  / %br/
   = f.label :last_name
   = f.text_field :last_name
   %br/
