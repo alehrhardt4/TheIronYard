@@ -22,9 +22,11 @@ class PatientsController < ApplicationController
   end
 
   def update
-  	@patient = Patient.find params[:id]
-  	@patient.update_attributes patient_params
+  	if @patient.update_attributes patient_params
   	redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
