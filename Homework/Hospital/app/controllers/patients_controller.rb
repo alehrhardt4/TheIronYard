@@ -9,8 +9,12 @@ class PatientsController < ApplicationController
   end
 
   def create
-  	@patient = Patient.create que_params
-  	redirect_to root_path
+    @patient = Patient.create patient_params
+    if @patient.save == true
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -18,19 +22,19 @@ class PatientsController < ApplicationController
   end
 
   def update
-  	@patient = Patient.find params [:id]
-  	@patient.update_attributes que_params
+  	@patient = Patient.find params[:id]
+  	@patient.update_attributes patient_params
   	redirect_to root_path
   end
 
   def destroy
-  	@patient = Patient.find params [:id]
-  	@patient.delete
-  	redirect_to root_path
+    @patient = Patient.find params[:id]
+    @patient.delete
+    redirect_to root_path
   end
 
 private
-	def que_params
-		params.require(:patient).permit(:first_name, :last_name)
+	def patient_params
+		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description)
 	end
 end
