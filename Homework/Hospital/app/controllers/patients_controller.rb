@@ -22,7 +22,8 @@ class PatientsController < ApplicationController
   end
 
   def update
-  	if @patient.update_attributes patient_params
+  	@patient = Patient.find params[:id]
+    if @patient.update_attributes patient_params
   	redirect_to root_path
     else
       render :edit

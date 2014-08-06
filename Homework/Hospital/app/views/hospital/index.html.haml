@@ -7,6 +7,6 @@
   = patient.dob
   = patient.gender
   = patient.description
-  = link_to "Edit", edit_patient_path(patient)
+  = link_to "Edit", edit_patient_path(patient.id)
   = link_to "Delete", patient_path(patient), method: :delete
   %br/

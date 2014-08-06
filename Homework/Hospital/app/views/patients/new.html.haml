@@ -1,7 +1,7 @@
 %h1 Create New Patient
 
 = form_for @patient do |f|
--if @patient.errors.any?
+  -if @patient.errors.any?
     #error_explanation
       %h2= "#{pluralize(@patient.errors.count, "error")} prohibited this patient from being saved:"
       %ul
