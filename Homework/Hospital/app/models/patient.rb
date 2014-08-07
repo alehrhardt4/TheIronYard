@@ -1,5 +1,7 @@
 class Patient < ActiveRecord::Base
  def dob_cannot_be_in_the_future
+    p dob.instance_of?(Date)
+    p (dob <= Date.today)
     unless dob.instance_of?(Date) && (dob <= Date.today)
       errors.add(:dob, "must be a DATE before today") 
     end

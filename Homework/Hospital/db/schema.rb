@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140805214710) do
   create_table "patients", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "dob"
+    t.date     "dob"
     t.string   "gender"
     t.text     "description"
     t.datetime "created_at"
