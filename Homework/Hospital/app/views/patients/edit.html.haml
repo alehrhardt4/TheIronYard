@@ -26,3 +26,22 @@
   = f.text_field :description
   %br/
   = f.submit
+  %br/
+  -if @patient.workflow.state == "waiting_room"
+      event :checkup, transitions_to: :admitted
+      event :xray, transitions_to: :xrayed
+      event :surgery, transitions_to: :recover
+      event :pay, transitions_to: :discharge
+  -if @patient.workflow.state == "admitted"
+      event :xray, transitions_to: :xrayed
+      event :surgery, transitions_to: :recover
+      event :pay, transitions_to: :discharge
+  -if @patient.workflow.state == "surgery"
+      event :checkup, transitions_to: :admitted
+      event :surgery, transitions_to: :recover
+      event :pay, transitions_to: :discharge  
+  -if @patient.workflow.state == "paying"
+      event :checkup, transitions_to: :admitted
+      event :surgery, transitions_to: :recover
+      event :pay, transitions_to: :discharge
+  -if @patient.workflow.state == "discharged"

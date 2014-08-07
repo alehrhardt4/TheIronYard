@@ -1,5 +1,9 @@
 class PatientsController < ApplicationController
 
+  def index
+    @patient = Patient.all
+  end
+
   def show
   	@patient = Patient.find params[:id]
   end
@@ -36,8 +40,37 @@ class PatientsController < ApplicationController
     redirect_to root_path
   end
 
+  def waiting_room
+    @patient = f_patient.seeing! 
+    redirect_to patient_path
+  end
+
+  def checkup
+    @patient = f_patient.admitted!
+    redirect_to patient_path
+  end
+
+  def xray
+    @patient = f_patient.xrayed!
+    redirect_to patient_path
+  end
+
+  def surgery
+    @patient = f_patient.recover!
+    redirect_to patient_path
+  end
+
+  def pay
+    @patient = f_patient.discharge!
+    redirect_to patient_path
+  end
+
 private
+  def f_patient
+    @patient = Patient.find params[:id]
+  end
+  
 	def patient_params
-		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description)
+		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
 	end
 end
