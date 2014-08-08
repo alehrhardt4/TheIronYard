@@ -15,7 +15,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.create patient_params
     if @patient.save == true
-      redirect_to root_path
+      redirect_to patient_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
   def update
   	@patient = Patient.find params[:id]
     if @patient.update_attributes patient_params
-  	redirect_to root_path
+  	redirect_to patient_path
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class PatientsController < ApplicationController
   def destroy
     @patient = Patient.find params[:id]
     @patient.delete
-    redirect_to root_path
+    redirect_to patient_path
   end
 
   def waiting_room
@@ -46,7 +46,7 @@ class PatientsController < ApplicationController
   end
 
   def checkup
-    @patient = f_patient.admitted!
+    @patient = f_patient.admit!
     redirect_to patient_path
   end
 
@@ -56,7 +56,7 @@ class PatientsController < ApplicationController
   end
 
   def surgery
-    @patient = f_patient.recover!
+    @patient = f_patient.cut!
     redirect_to patient_path
   end
 
@@ -69,7 +69,7 @@ private
   def f_patient
     @patient = Patient.find params[:id]
   end
-  
+
 	def patient_params
 		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
 	end

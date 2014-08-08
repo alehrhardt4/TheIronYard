@@ -25,23 +25,26 @@
   = f.label :description
   = f.text_field :description
   %br/
-  = f.submit
+  = "Patient State"
   %br/
   -if @patient.workflow.state == "waiting_room"
-      event :checkup, transitions_to: :admitted
-      event :xray, transitions_to: :xrayed
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :admit, transitions_to: :checkup
+      event :xrayed, transitions_to: :xray
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
   -if @patient.workflow.state == "admitted"
-      event :xray, transitions_to: :xrayed
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :xrayed, transitions_to: :xray
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
   -if @patient.workflow.state == "surgery"
-      event :checkup, transitions_to: :admitted
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge  
+      event :admit, transitions_to: :checkup
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
   -if @patient.workflow.state == "paying"
-      event :checkup, transitions_to: :admitted
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :admit, transitions_to: :checkup
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
   -if @patient.workflow.state == "discharged"
+  %br/
+  = f.submit
+  = link_to "Back", patient_path

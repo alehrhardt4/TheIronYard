@@ -2,25 +2,25 @@ class Patient < ActiveRecord::Base
   include Workflow 
   workflow do
     state :waiting_room do
-      event :checkup, transitions_to: :admitted
-      event :xray, transitions_to: :xrayed
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :admit, transitions_to: :checkup
+      event :xrayed, transitions_to: :xray
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
     end
     state :checkup do
-      event :xray, transitions_to: :xrayed
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :xrayed, transitions_to: :xray
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
     end
     state :xray do
-      event :checkup, transitions_to: :admitted
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :admit, transitions_to: :checkup
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
     end  
     state :surgery do
-      event :checkup, transitions_to: :admitted
-      event :surgery, transitions_to: :recover
-      event :pay, transitions_to: :discharge
+      event :admit, transitions_to: :checkup
+      event :cut, transitions_to: :surgery
+      event :discharge, transitions_to: :pay
     end
     state :pay do
     end
