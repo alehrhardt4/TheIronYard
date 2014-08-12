@@ -1,0 +1,14 @@
+= link_to "Back", hospital_patient_path(@hospital, @patient, @medication)
+%h1 Patient Medication
+%br
+- @medication.each do |medication|
+  = medication.name
+  = medication.description
+
+  = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
+  = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
+  %br/
+
+
+
+

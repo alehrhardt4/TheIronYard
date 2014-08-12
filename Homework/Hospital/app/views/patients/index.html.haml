@@ -1,7 +1,8 @@
 %h1 Hospital Patient Status
-= link_to "Create New Patient", new_patient_path
+= link_to "Create New Patient", new_hospital_patient_path
 %br/
 = link_to "Home", root_path
+%br
 - @patient.each do |patient|
   = patient.first_name
   = patient.last_name
@@ -9,6 +10,7 @@
   = patient.gender
   = patient.description
   %strong= patient.workflow_state
-  = link_to "Edit", edit_patient_path(patient.id)
-  = link_to "Delete", patient_path(patient), method: :delete
+  = link_to "Medications", hospital_patient_medications_path(@hospital, patient)
+  = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
+  = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
   %br/

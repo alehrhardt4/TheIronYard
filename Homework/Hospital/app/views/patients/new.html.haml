@@ -1,22 +1,5 @@
 %h1 Create New Patient
-
-/ = form_for @patient do |f|
-/   -if f.errors.messages.length > 0
-/     / #error_explanation
-/     %h2= "#{pluralize(f.errors.count, "error")} prohibited this patient from being saved:"
-/     %ul
-/       - f.errors.full_messages.each do |msg|
-/         %li= msg
-= form_for @patient do |f|
-  - if  f.object.errors.messages.length > 0
-    / Renders errors to user
-    - f.object.errors.messages.inspect
-    %br/
-    - f.object.errors.messages.each do |key, value|
-      - value.each do |message|
-        = key.capitalize
-        = message
-    %br/
+= form_for [@hospital, @patient] do |f|
   = f.label :first_name
   = f.text_field :first_name
   %br/
@@ -35,4 +18,4 @@
   = f.text_field :description
   %br/
   = f.submit
-  = link_to "Back", patient_path
+= link_to "Back", hospital_patients_path

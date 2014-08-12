@@ -3,7 +3,7 @@ class CreateMedications < ActiveRecord::Migration
     create_table :medications do |t|
     	t.string :name
     	t.text :description
-    	t.integar :patient_id
+    	t.integer :patient_id
       t.timestamps
     end
   end

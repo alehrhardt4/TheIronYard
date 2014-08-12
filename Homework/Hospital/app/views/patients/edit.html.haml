@@ -1,7 +1,6 @@
 %h2 Edit Patient
 = form_for @patient do |f|
   - if  f.object.errors.messages.length > 0
-    / Renders errors to user
     - f.object.errors.messages.inspect
     %br/
     - f.object.errors.messages.each do |key, value|
@@ -10,7 +9,7 @@
         = message
   = f.label :first_name
   = f.text_field :first_name
-  / %br/
+  %br
   = f.label :last_name
   = f.text_field :last_name
   %br/
@@ -47,4 +46,4 @@
   -if @patient.workflow.state == "discharged"
   %br/
   = f.submit
-  = link_to "Back", patient_path
+  = link_to "Back", hospital_patients_path

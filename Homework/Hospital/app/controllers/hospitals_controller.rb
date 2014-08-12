@@ -1,6 +1,6 @@
-class HospitalController < ApplicationController
+class HospitalsController < ApplicationController
 	def index
-		@hospital = Hospital.all
+		@hospitals = Hospital.all
 	end
 
   def new
@@ -31,12 +31,11 @@ class HospitalController < ApplicationController
     @hospital.delete
     redirect_to hospital_path(@hospital)
   end
-  private
-    def f_hospital
-      @hospital = Hospital.find params[:id]
-    end
-    def hospital_params
-      params.require(:hospital).permit(:name, :description)
-    end
-end
+private
+  def f_hospital
+    @hospital = Hospital.find params[:id]
+  end
+  def hospital_params
+    params.require(:hospital).permit(:name, :description)
+  end
 end
