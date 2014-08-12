@@ -70,6 +70,9 @@ private
     @patient = Patient.find params[:id]
   end
 
+  def f_hospital
+    @hospital = Hospital.find params[:hospital_id]
+
 	def patient_params
 		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
 	end

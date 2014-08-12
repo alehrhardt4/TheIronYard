@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'hospital#index'
+resources :hospitals do
   resources :patients do
     member do
       put :waiting_room
@@ -13,7 +14,10 @@ Rails.application.routes.draw do
       put :surgery
       put :pay
     end
+    resources :medications do
+    end
   end
+end
   #resources :first_name
   #resources :last_name
 

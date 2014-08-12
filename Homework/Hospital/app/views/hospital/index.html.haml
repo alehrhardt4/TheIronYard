@@ -1,0 +1,13 @@
+%h1 Welcome to the Hospital Patient Database!
+= link_to "Anna's Patient Database", patients_path
+
+= link_to "Create Hospital", new_hospital_path
+%ul
+  - @hospitals.each do |hospital|
+    %li
+      %strong
+      = link_to hospital.name, hospital_path(hospital)
+      = hospital.description
+      = link_to "Edit", edit_hospital_path(hospital)
+      = link_to "Delete", hospital_path(hospital), method: :delete
+= link_to "Back", root_path

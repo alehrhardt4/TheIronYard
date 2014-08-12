@@ -1,4 +1,6 @@
 class Patient < ActiveRecord::Base
+  belongs_to :hospitals
+  has_many :medications
   include Workflow 
   workflow do
     state :waiting_room do
