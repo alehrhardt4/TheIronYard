@@ -1,0 +1,38 @@
+body{
+	background-image: url("image/hospital2.jpg");
+	background-repeat: no-repeat;
+	padding: 0;
+	margin: 0 ;
+}
+
+
+
+header{
+	width: 100%;
+	height: 15%;
+	padding: 0;
+	margin: 0;
+}
+
+
+
+h1{
+	font-family: courier;
+	font-size: 65px;
+	margin-top: 9%;
+	color: wheat;
+	margin-left: 38%;
+}
+
+.container{
+	margin-top: 1%;
+	color: wheat;
+	width: 40%;
+	margin-left: 29%;
+}
+
+button{margin-left: 46%;
+		width: 85px;
+		height: 24px;
+		border-radius: 10%;
+}
