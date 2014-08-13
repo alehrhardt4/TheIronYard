@@ -1,4 +1,4 @@
-%h1 Hospital Patient Status
+%h1 Hospital Patient
 = link_to "Create New Patient", new_hospital_patient_path
 %br/
 = link_to "Home", root_path
@@ -14,3 +14,18 @@
   = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
   = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
   %br/
+- @patient.doctors.each do |doctor|
+  - if doctor.name
+    %li
+      = doctor.name
+      = link_to "Delete", delete_doctor_hospital_patient_path(@hosptial, @patient, doctor_name: doctor.name), method: :delete
+    %br
+= form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @doctor) do |f|
+  = f.label :name
+  = f.text_area :name
+  %br
+  = f.submit
+
+
+
+

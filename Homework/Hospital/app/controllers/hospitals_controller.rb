@@ -15,11 +15,13 @@ class HospitalsController < ApplicationController
     end
   end
   def edit
-
+    @hospital = Hospital.find params[:id]
   end
   def update
+    @hospital = Hospital.find params[:id]
     if @hospital.update_attributes hospital_params
       redirect_to hospital_path(@hospital)
+
     else 
       render :edit
     end  

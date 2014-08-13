@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-before_action :f_hospital
+  before_action :f_hospital
   def index
     @patient = Patient.all
     @hosptial = Hospital.find params[:hospital_id]
@@ -7,6 +7,7 @@ before_action :f_hospital
 
   def show
   	@patient = Patient.find params[:id]
+    @doctor = @patient.doctors.new
   end
 
   def new
@@ -42,6 +43,20 @@ before_action :f_hospital
     redirect_to hospital_patients_path
   end
 
+  def create_doctor
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = @hospital.patient.find params[:id]
+    @doctor = @patient.doctors.create doctor_params
+    redirect_to hospital_patient_path(@hospital, @patient)
+  end
+
+  def delete_doctor
+    @hospital = Hospital.find params[:hospital_id]
+    @patient = @hospital.patient.find params[:id]
+    @doctor = @patient.doctor.create doctor_params
+    @doctor.delete
+    redirect_to hospital_patient_path(@hospital, @patient)
+  end
   def waiting_room
     @patient = f_patient.seeing! 
     redirect_to hospital_patient_path
@@ -67,16 +82,19 @@ before_action :f_hospital
     redirect_to hospital_patient_path
   end
 
-private
-  def f_patient
-    @patient = Patient.find params[:id]
-  end
+  private
+    def f_patient
+      @patient = Patient.find params[:id]
+    end
 
-  def f_hospital
-    @hospital = Hospital.find params[:hospital_id]
-  end
+    def doctor_params
+      params.require(:doctor).permit(:name)
+    end
+    def f_hospital
+      @hospital = Hospital.find params[:hospital_id]
+    end
 
-	def patient_params
-		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
-	end
+  	def patient_params
+  		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
+  	end    
 end

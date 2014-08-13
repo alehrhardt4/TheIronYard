@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'hospitals#index'
 resources :hospitals do
+   member do
+      post :create_doctor
+      delete :delete_doctor
+    end
   resources :patients do
     member do
       put :waiting_room
@@ -13,6 +17,10 @@ resources :hospitals do
       put :xray
       put :surgery
       put :pay
+    end
+    member do
+      post :create_doctor
+      delete :delete_doctor
     end
     resources :medications do
     end
