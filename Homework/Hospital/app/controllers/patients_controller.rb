@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
   def index
     @patient = Patient.all
     @hosptial = Hospital.find params[:hospital_id]
+
   end
 
   def show
