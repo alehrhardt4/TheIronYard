@@ -12,19 +12,7 @@
   %strong= patient.workflow_state
   = link_to "Medications", hospital_patient_medications_path(@hospital, patient)
   = link_to "Edit", edit_hospital_patient_path(@hospital, patient)
-  = link_to "Delete", hospital_patient_path(@hospital, patient), method: :delete
-  %br/
-- @patient.doctor.each do |doctor|
-  - if doctor.name
-    %li
-      = doctor.name
-      = link_to "Delete", delete_doctor_hospital_patient_path(@hosptial, @patient, doctor_id: doctor.id), method: :delete
-    %br
-= form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
-  = f.label :name
-  = f.text_area :name
-  %br
-  = f.submit
+  = link_to "Delete", hospital_patient_path(@hospital, patient),method: :delete
 
 
 
