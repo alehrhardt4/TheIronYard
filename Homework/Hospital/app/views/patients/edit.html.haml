@@ -47,5 +47,5 @@
       event :discharge, transitions_to: :pay
   -if @patient.workflow.state == "discharged"
   %br/
-  = f.submit
+  = f.submit 'Submit', disabled: "disabled"
   = link_to "Back", hospital_patients_path
