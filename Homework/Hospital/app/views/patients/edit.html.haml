@@ -24,6 +24,7 @@
   = f.label :description
   = f.text_field :description
   %br/
+  
   = "Patient State"
   %br/
   -if @patient.workflow.state == "waiting_room"
