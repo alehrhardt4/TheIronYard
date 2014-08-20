@@ -1,3 +1,4 @@
+%script{:src => "/assets/medication.js", :type => "text/javascript"}
 = form_for [@hospital, @patient, @medication] do |f|
   / - if  f.object.errors.messages.length > 0
   /   - f.object.errors.messages.inspect
