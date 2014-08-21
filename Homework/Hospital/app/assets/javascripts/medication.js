@@ -14,6 +14,13 @@ $('#medication_description').on('input', function() {
     if(is_medication_description){input.removeClass("invalid").addClass("valid");}
     else{input.removeClass("valid").addClass("invalid");}
 });
+$(".new").click(function() {
+    var new =$(this).html()
+    console.log(new)
+    $(".medication_list").addClass("hidden")
+    $(".total" + new_page).removeClass("hidden")
+
+  });
 
 });
 

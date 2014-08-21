@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :f_hospital
+ before_action :authenticate_user!
+ before_action :f_hospital
   def index
     @patient = Patient.all
     @hosptial = Hospital.find params[:hospital_id]

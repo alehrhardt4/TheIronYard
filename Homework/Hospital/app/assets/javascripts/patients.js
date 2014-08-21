@@ -14,13 +14,12 @@ $('#patient_last_name').on('input', function() {
     if(is_patient_last_name){input.removeClass("invalid").addClass("valid");}
     else{input.removeClass("valid").addClass("invalid");}
 });
+$(".new").click(function() {
+    var new =$(this).html()
+    console.log(new)
+    $(".patient_list").addClass("hidden")
+    $(".total" + new_page).removeClass("hidden")
 
-
-$('#medication_description').on('input', function() {
-    var input=$(this);
-    var is_medication_description=input.val();
-    if(is_medication_description){input.removeClass("invalid").addClass("valid");}
-    else{input.removeClass("valid").addClass("invalid");}
-});
+  });
 
 });

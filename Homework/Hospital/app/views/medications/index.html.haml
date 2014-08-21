@@ -10,6 +10,17 @@
   = link_to "Edit", edit_hospital_patient_medication_path(@hospital, patient)
   = link_to "Delete", hospital_patient_medication_path(@hospital, patient), method: :delete
   %br/
+- total = 0
+%ul
+  - Medication.all.each_slice(3) do |medication_g|
+    - total += 1
+    - medication_g.each do |car|    
+      %li{class: "#{'hidden' if total >= 2} group_#{total} medication_list"}
+        = medication.name
+        = medication.description
+	- total.times do |x|
+  	= link_to x + 1, "javascript:void(0);", class: "new"
+  | 
 
 
 
