@@ -7,10 +7,10 @@
     - total += 1
     - hospital_g.each do |hospital|    
       %li{class: "#{'hidden' if total >= 2} total#{total} hospital_list"}
-      = link_to hospital.name, hospital_path(hospital)
-      = hospital.description
-      = link_to "Edit", edit_hospital_path(hospital)
-      = link_to "Delete", hospital_path(hospital), method: :delete
+        = link_to hospital.name, hospital_path(hospital)
+        = hospital.description
+        = link_to "Edit", edit_hospital_path(hospital)
+        = link_to "Delete", hospital_path(hospital), method: :delete
 - total.times do |x|
   = link_to x + 1, "javascript:void(0);", class: "new"
   |
