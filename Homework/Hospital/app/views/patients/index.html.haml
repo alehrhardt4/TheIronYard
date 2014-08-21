@@ -18,14 +18,14 @@
 %ul
  - Patient.all.each_slice(3) do |patient_g|
     - total += 1
-    - patient_g.each do |car|    
+    - patient_g.each do |patient|    
       %li{class: "#{'hidden' if total >= 2} group_#{total} patient_list"}
         = patient.first_name
         = patient.last_name
         = patient.dob
         = patient.gender
-        = patient.description
-	- total.times do |x|
+        = patient.descriptionafadklsfjlsdk;fjl;ksdajflksdjf
+ - total.times do |x|
   	= link_to x + 1, "javascript:void(0);", class: "new"
 
 

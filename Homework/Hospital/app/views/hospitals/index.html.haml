@@ -13,12 +13,12 @@
 %ul
   - Hospital.all.each_slice(3) do |hospital_g|
     - total += 1
-    - hospital_g.each do |car|    
+    - hospital_g.each do |hospital|    
       %li{class: "#{'hidden' if total >= 2} group_#{total} hospital_list"}
         = hospital.name
         = hospital.description
-	- total.times do |x|
-  	= link_to x + 1, "javascript:void(0);", class: "new"
+- total.times do |x|
+  = link_to x + 1, "javascript:void(0);", class: "new"
   |
 
 = link_to "Back", root_path
