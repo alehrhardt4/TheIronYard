@@ -1,24 +1,17 @@
 
 %h1 Welcome to the Hospital Patient Database!
 = link_to "Create Hospital", new_hospital_path
-%ul
-  - @hospitals.each do |hospital|
-    %li
-      %strong
-      = link_to hospital.name, hospital_path(hospital)
-      = hospital.description
-      = link_to "Edit", edit_hospital_path(hospital)
-      = link_to "Delete", hospital_path(hospital), method: :delete
 - total = 0
 %ul
   - Hospital.all.each_slice(3) do |hospital_g|
     - total += 1
     - hospital_g.each do |hospital|    
-      %li{class: "#{'hidden' if total >= 2} group_#{total} hospital_list"}
-        = hospital.name
-        = hospital.description
+      %li{class: "#{'hidden' if total >= 2} total#{total} hospital_list"}
+      = link_to hospital.name, hospital_path(hospital)
+      = hospital.description
+      = link_to "Edit", edit_hospital_path(hospital)
+      = link_to "Delete", hospital_path(hospital), method: :delete
 - total.times do |x|
   = link_to x + 1, "javascript:void(0);", class: "new"
   |
-
 = link_to "Back", root_path
