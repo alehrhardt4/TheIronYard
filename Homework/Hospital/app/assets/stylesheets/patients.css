@@ -25,6 +25,10 @@ textarea{
 input.invalid, textarea.invalid{
     border: 2px solid red;
 }
+
+.hidden {
+  display: none;
+}
  
 input.valid, textarea.valid{
     border: 2px solid green;
