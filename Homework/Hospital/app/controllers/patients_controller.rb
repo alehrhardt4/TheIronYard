@@ -4,12 +4,19 @@ class PatientsController < ApplicationController
   def index
     @patient = Patient.all
     @hosptial = Hospital.find params[:hospital_id]
-
+    respond_to do |format|
+    format.js
   end
 
   def show
   	@patient = Patient.find params[:id]
     @doctor = @patient.doctors.new
+  end
+
+  def search_patients
+    @patients = @hospital.patients.where("first_name LIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+    format.js
   end
 
   def new
