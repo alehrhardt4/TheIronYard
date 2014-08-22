@@ -24,7 +24,7 @@ $(".new_page").click(function() {
   $(".search_patients").click( function() {
     console.log($('.patient_search').val())
     $.ajax({
-      url: "/patients",
+      url: link,
       dataType: "script",
       type: "GET",
       data: {q: $('.patient_search').val()}

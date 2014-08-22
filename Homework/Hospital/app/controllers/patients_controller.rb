@@ -4,8 +4,6 @@ class PatientsController < ApplicationController
   def index
     @patient = Patient.all
     @hosptial = Hospital.find params[:hospital_id]
-    respond_to do |format|
-    format.js
   end
 
   def show
@@ -15,8 +13,6 @@ class PatientsController < ApplicationController
 
   def search_patients
     @patients = @hospital.patients.where("first_name LIKE ?", "%#{params[:q]}%")
-    respond_to do |format|
-    format.js
   end
 
   def new
@@ -105,5 +101,5 @@ class PatientsController < ApplicationController
 
   	def patient_params
   		params.require(:patient).permit(:first_name, :last_name, :dob, :gender, :description, :workflow_state)
-  	end    
+  	end
 end
