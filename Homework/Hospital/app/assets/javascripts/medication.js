@@ -15,8 +15,8 @@ $('#medication_description').on('input', function() {
     else{input.removeClass("valid").addClass("invalid");}
 });
 $(".new").click(function() {
-    var new =$(this).html()
-    console.log(new)
+    var new_page =$(this).html()
+    console.log(new_page)
     $(".medication_list").addClass("hidden")
     $(".total" + new_page).removeClass("hidden")
 
