@@ -32,7 +32,7 @@ $("#hospital_submit button").click(function(event){
         alert('No errors: Form will be submitted');
     }
 });
-$(".new").click(function() {
+$(".new_page").click(function() {
     var new =$(this).html()
     console.log(new)
     $(".hospital_list").addClass("hidden")
