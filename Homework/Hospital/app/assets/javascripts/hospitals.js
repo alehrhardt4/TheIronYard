@@ -33,8 +33,8 @@ $("#hospital_submit button").click(function(event){
     }
 });
 $(".new_page").click(function() {
-    var new =$(this).html()
-    console.log(new)
+    var new_page =$(this).html()
+    console.log(new_page)
     $(".hospital_list").addClass("hidden")
     $(".total" + new_page).removeClass("hidden")
 

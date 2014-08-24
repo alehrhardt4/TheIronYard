@@ -1,6 +1,37 @@
 %script{:src => "/assets/hospitals.js", :type => "text/javascript"}
+%nav.navbar.navbar-inverse{:role => "navigation"}
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          - if user_signed_in?
+            = content_tag(:a, current_user.email)
+          - else
+            = link_to "Log In", new_user_session_path
+          - if user_signed_in?
+            %li.active
+              = link_to "Home", root_path
+            %li
+              = link_to "Add Hospital", new_hospital_path
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            User Profile
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              = link_to "Edit Profile", edit_user_registration_path
+            %li
+              = link_to "Log Out", destroy_user_session_path, method: :delete
 
-= link_to "Back", root_path
 = form_for @hospital do |f|
   - if  f.object.errors.messages.length > 0
     - f.object.errors.messages.inspect
