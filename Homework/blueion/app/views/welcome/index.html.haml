@@ -13,10 +13,10 @@
               %img{:alt => "subscribe", :src => "assets/subscribe1.png"}
           .col-sm-4
             .appear &#8286;
-            %img{:alt => "facebook", :src => "assets/facebook.png"}
-            %img{:alt => "twitter", :src => "assets/twitter.png"}
-            %img{:alt => "yellow", :src => "assets/yellow.png"}
-            %img{:alt => "youtube", :src => "assets/youtube.png"}
+            %img.hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a{:alt => "hi-icon", :src => "assets/facebook.png"}
+            %img{:alt => "hi-icon", :src => "assets/twitter.png"}
+            %img{:alt => "hi-icon", :src => "assets/yellow.png"}
+            %img{:alt => "hi-icon", :src => "assets/youtube.png"}
   
     / Collect the nav links, forms, and other content for toggling
     .dropdown
@@ -48,9 +48,11 @@
                       %a{:href => "#"} Rodney Mullen
                     %li
                       %a{:href => "#"} Steve Caballero
-                    %li.divider
                     %li
                       %a{:href => "#"} Tommy Guerrero
+                    %li.divider
+                    %li
+                      %a{:href => '#'} More Boarders
                 %li.dropdown
                   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                     %img{:src => "assets/boards.png"}/
@@ -92,15 +94,43 @@
       .container
         .row-news
           .col-sm-12.col-sm-offset-1
-            %img{:src => "assets/news1.png"}
-            %img{:src => "assets/news2.png"}
-            %img{:src => "assets/news3.png"}
+            .news1.col-sm-4
+              %h3 Ray Barbee Talks ‘Ban This’
+              %br/
+              %span.newsdate2
+                %h6 Oct 4, 2013
+              %br/
+              %span.newsmessage2
+                %p.lead Since filming is in full swing for the Vans video Adventures With Chris has taken the opportunity to sit some of the team down to look behind the skating of some of their earlier parts. Today we sit down Ray Barbee, one of the smoothest guys to ever step on a skateboard and Chris’ childhood idol...
+              %span.read
+            .news2.col-sm-4
+              %h3 Ray Barbee Talks ‘Ban This’
+              %br/
+              %span.newsdate2
+                %h6 Oct 4, 2013
+              %br/
+              %span.newsmessage2
+                %p.lead Since filming is in full swing for the Vans video Adventures With Chris has taken the opportunity to sit some of the team down to look behind the skating of some of their earlier parts. Today we sit down Ray Barbee, one of the smoothest guys to ever step on a skateboard and Chris’ childhood idol...
+              %span.read
+            .news3.col-sm-4
+              %h3 Ray Barbee Talks ‘Ban This’
+              %br/
+              %span.newsdate2
+                %h6 Oct 4, 2013
+              %br/
+              %span.newsmessage2
+                %p.lead Since filming is in full swing for the Vans video Adventures With Chris has taken the opportunity to sit some of the team down to look behind the skating of some of their earlier parts. Today we sit down Ray Barbee, one of the smoothest guys to ever step on a skateboard and Chris’ childhood idol...
+              %span.read
     .boarders
       .container
         .row-boarders
           .col-sm-12.col-sm-offset-1
+
             .boarder1
-              %img{:src => "assets/rodney.png"}
+              %img{:alt => "figure", :src => "assets/rodney.png"}
+              %figcaption
+                %h3
+                %button.btn.btn-primary.btn-default.active.buttonstyle{:type => "button buttonstyle"} Bio
             .boarder2
               %img{:src => "assets/lance.png"}
             .boarder3
@@ -164,21 +194,23 @@
           .col-sm-10.col-sm-offset-1
             .row.contactformstyle
               .contact-here
-                .col-sm-6.contacttext
-                  %h3.contacttitle
-                    Contact Us for More Information
-                    %h3
-                      %h6.contactinfo Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper nulla ut odio scelerisque varius. Phasellus dui nunc, lacinia at vehicula congue, vehicula nec tellus. Morbi dignissim rutrum lorem at tincidunt.
-                      %ul.contactinfosocialicons
-                        %img.confacbookicon{:src => "assets/blackfacebook.png"}/
-                        %img.conwordpressicon{:src => "assets/blackyellow.png"}/
-                        %img{:class => "contwittericon.png", :src => "assets/blacktwitter.png"}/
-                        %img{:class => "conyoutubeicon.png", :src => "assets/blackyoutube.png"}/
-                      %ul.form
-                        %li.name
-                          %input.form-control.namestyle{:placeholder => "Name", :type => "text"}/
-                        %li.email
-                          %input.form-control.email.style{:placeholder => "Email", :type => "text"}/
-                        %li.message
-                          %input.form-control.input-lg.yourmessagestyle{:placeholder => "Your Message", :type => "text"}/
-                        %button.btn.btn-primary.btn-default.active.buttonstyle{:type => "button buttonstyle"} Submit
+                .col-sm-12.contacttext
+                  .col-sm-3
+                    %h3.contacttitle
+                      Contact Us for More Information
+                      %h3
+                        %h6.contactinfo Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper nulla ut odio scelerisque varius. Phasellus dui nunc, lacinia at vehicula congue, vehicula nec tellus. Morbi dignissim rutrum lorem at tincidunt.
+                        %ul.contactinfosocialicons
+                          %img.confacbookicon{:src => "assets/blackfacebook.png"}/
+                          %img.conwordpressicon{:src => "assets/blackyellow.png"}/
+                          %img{:class => "contwittericon.png", :src => "assets/blacktwitter.png"}/
+                          %img{:class => "conyoutubeicon.png", :src => "assets/blackyoutube.png"}/
+                  .col-sm-3.form
+                    %ul.form
+                      %li.name
+                        %input.form-control.namestyle{:placeholder => "Name", :type => "text"}/
+                      %li.email
+                        %input.form-control.email.style{:placeholder => "Email", :type => "text"}/
+                      %li.message
+                        %input.form-control.input-lg.yourmessagestyle{:placeholder => "Your Message", :type => "text"}/
+                      %button.btn.btn-6.btn-6d.active.buttonstyle{:type => "button buttonstyle"} Submit
