@@ -31,10 +31,10 @@
                   = link_to "Hospitals Home", hospitals_path
               %li
                 = link_to "Add Patient", new_hospital_patient_path(@hospital)
-      %form.navbar-form.navbar-left{:role => "search"}
-        .form-group
-          %input.form-control{:placeholder => "Find Patient", :type => "text", :class => "patient_search"}/
-        %button.btn.btn-default{:type => "submit", :class => "search_patient", :link => search_patients} Submit
+      / %form.navbar-form.navbar-left{:role => "search"}
+      /   .form-group
+      /     %input.form-control{:placeholder => "Find Patient", :type => "text", :class => "patient_search"}/
+      /   %button.btn.btn-default{:type => "submit", :class => "search_patient", :link => search_patients} Submit
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}

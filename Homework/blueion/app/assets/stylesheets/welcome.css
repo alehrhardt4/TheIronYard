@@ -1,0 +1,86 @@
+body{
+	background-image: url("/assets/background.png");
+	background-repeat: no-repeat;
+	padding: 0;
+	margin: 0 ;
+}
+
+.col-sm-1.col-sm-offset-7 {
+	display: inline-block;
+	padding-top: 20px
+}
+
+.subscribe:hover {
+	color: red;
+}
+
+.row-nav{
+	padding: 0;
+	margin-bottom: 1%;
+}
+
+.appear{
+	font-family: -webkit-pictograph;
+	font-size: 40px;
+	color: white;
+	display: inline-block;
+}
+
+.col-sm-12.col-sm-offset-1{
+	margin-left: 7%;}
+
+.new{
+	margin-left: 2%;
+margin-top:2%;
+}
+
+.boarders {
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+.boarder1 {
+	display: inline-block;
+}
+
+.boarder2 {
+	display: inline-block;
+	margin-left: 2%;
+}
+
+.contactformstyle {
+	background-color: white;
+	width: 930px;
+	margin-left: 0%;
+	margin-top: 2%
+}
+
+.boarder3 {
+	display: inline-block;
+	margin-top: 2%;
+}
+
+.boarder4 {
+	display: inline-block;
+	margin-top: -20%;
+	position: absolute;
+	margin-left: 2%;
+}
+
+#myCarousel {
+	width: 930px;
+	background-color: white;
+}
+
+.row-boards {
+	margin-top: 2%
+}
+.ul.contactinfosocialicons {
+	display: inline-block;
+}
+
+.form-horizontal {
+	margin-top: 2%;
+	width: 25%;
+	background-color: white;
+}
