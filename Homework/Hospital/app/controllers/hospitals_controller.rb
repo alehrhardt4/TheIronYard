@@ -10,7 +10,7 @@ class HospitalsController < ApplicationController
   def create
     @hospital = Hospital.create hospital_params
     if @hospital.save == true
-      redirect_to hospital_path(@hospital)
+      redirect_to hospital_path
     else
       render :new
     end
@@ -21,7 +21,7 @@ class HospitalsController < ApplicationController
   def update
     @hospital = Hospital.find params[:id]
     if @hospital.update_attributes hospital_params
-      redirect_to hospital_path(@hospital)
+      redirect_to hospital_path
 
     else 
       render :edit
@@ -32,7 +32,7 @@ class HospitalsController < ApplicationController
   end
   def destroy
     @hospital.delete
-    redirect_to hospital_path(@hospital)
+    redirect_to hospital_path
   end
 private
   def f_hospital

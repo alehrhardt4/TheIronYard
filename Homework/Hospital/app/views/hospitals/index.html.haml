@@ -32,6 +32,7 @@
               = link_to "Log Out", destroy_user_session_path, method: :delete
 
 %h1 Welcome to the Hospital Patient Database!
+- markers = ''
 - total = 0
 %ul
   - Hospital.all.each_slice(3) do |hospital_g|
@@ -42,5 +43,7 @@
         = hospital.description
         = link_to "Edit", edit_hospital_path(hospital)
         = link_to "Delete", hospital_path(hospital), method: :delete
+        - markers << "#{hospital.latitude}%2C#{hospital.longitude}&"
+        = image_tag "http://maps.google.com/maps/api/staticmap?size=1000x1000&sensor=false&markers=#{markers}"
 - total.times do |x|
   = link_to x + 1, "javascript:void(0);", class: "new_page"
