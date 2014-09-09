@@ -39,6 +39,6 @@ private
     @hospital = Hospital.find params[:id]
   end
   def hospital_params
-    params.require(:hospital).permit(:name, :description)
+    params.require(:hospital).permit(:name, :description, :address)
   end
 end
